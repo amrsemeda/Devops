@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ## Github
 ```bash
 git init
-git Add -A
+git add -A
 git status
 git config --global user.name amrsemeda
 git config --global user.email amrsemeda@gmail.com
