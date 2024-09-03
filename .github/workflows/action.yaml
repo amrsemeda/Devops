@@ -25,7 +25,7 @@ jobs:
       steps:
         - uses: actions/checkout@v4
         - name: Build and Push Docker Container
-          run: 
+          run: |
             docker build -t amrsemeda/devops .
             echo ${{secrets.DOCKER_PASSWORD}} | docker login -u amrsemeda --password-stdin 
             docker push amrsemeda/devops
