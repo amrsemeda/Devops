@@ -17,3 +17,15 @@ jobs:
 
       - name: Run tests
         run: python3 -m pytest
+
+
+  build-and-push:
+      needs: [test]
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Build and Push Docker Container
+          run: 
+            docker build -t amrsemeda/devops .
+            echo ${{secrets.DOCKER_PASSWORD}} | docker login -u amrsemeda --password-stdin 
+            docker push amrsemeda/devops
